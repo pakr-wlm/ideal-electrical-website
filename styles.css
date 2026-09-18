@@ -644,7 +644,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .hero-card img { width: 100%; height: auto; border-radius: 10px; }
 .timeline { list-style: none; margin: 0; padding: 0 0 0 26px; border-left: 2px solid rgba(255,255,255,.25); display: grid; gap: 26px; }
 .timeline li { position: relative; }
-.timeline li::before { content: ""; position: absolute; left: -35px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: #d0121a; border: 3px solid #141414; box-shadow: 0 0 0 2px rgba(255,255,255,.35); }
+.timeline li::before { content: ""; position: absolute; left: -29px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent-dark); box-shadow: 0 0 0 5px var(--color-ink); }
 .timeline .yr { display: block; font-family: var(--font-heading); font-size: 26px; color: #fff; }
 .timeline p { margin: 2px 0 0; color: #d6d6da; }
 .story { background: var(--color-ink); color: #fff; padding: 76px 0; }
