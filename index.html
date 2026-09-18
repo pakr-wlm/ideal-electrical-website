@@ -704,6 +704,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
   "@type": "Electrician",
   "name": "Ideal Electrical Contractors Inc.",
   "telephone": "+1-706-882-2010",
+  "email": "ideal59@idealelectricweb.com",
   "foundingDate": "1959-05",
   "address": { "@type": "PostalAddress", "streetAddress": "3206 West Point Road", "addressLocality": "LaGrange", "addressRegion": "GA", "postalCode": "30240", "addressCountry": "US" },
   "openingHoursSpecification": [{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:00" }],
@@ -1038,10 +1039,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
         <div class="contact-actions">
           <a class="btn btn-primary btn-lg" href="tel:+17068822010">Call 706-882-2010</a>
         </div>
-        <p class="contact-lines">3206 West Point Road<br>LaGrange, GA 30240<br>Mon&ndash;Fri, 8:00 AM&ndash;5:00 PM &middot; Emergency service 24/7</p>
+        <p class="contact-lines">Email: <a href="mailto:ideal59@idealelectricweb.com">ideal59@idealelectricweb.com</a><br>3206 West Point Road<br>LaGrange, GA 30240<br>Mon&ndash;Fri, 8:00 AM&ndash;5:00 PM &middot; Emergency service 24/7</p>
       </div>
-      <!-- TODO before launch: set TO_EMAIL in the script below to the business's real intake email (none was published),
-           or point the form at a form service. Until then it shows a "call us" note instead of sending. -->
+      <!-- The form opens the visitor's email app with a pre-filled message to the business.
+           TODO before launch: point it at a real form endpoint so leads arrive without the visitor's email app. -->
       <form class="contact-form reveal" id="estimate-form" aria-label="Request an estimate" novalidate>
         <label for="f-name">Name</label>
         <input id="f-name" type="text" name="name" autocomplete="name" required>
@@ -1126,6 +1127,10 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
         <span class="muted">Mike Lindsey, Owner</span>
       </p>
       <p class="contact-line">
+        <a href="mailto:ideal59@idealelectricweb.com">ideal59@idealelectricweb.com</a>
+        <span class="muted">Email us</span>
+      </p>
+      <p class="contact-line">
         3206 West Point Road
         <span class="muted">LaGrange, GA 30240</span>
       </p>
@@ -1189,8 +1194,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  // Estimate form. TO_EMAIL is empty because no intake email was published for the business.
-  var TO_EMAIL = '';
+  // Estimate form: opens the visitor's email app with a pre-filled message to the business.
+  var TO_EMAIL = 'ideal59@idealelectricweb.com';
   var form = document.getElementById('estimate-form');
   var note = document.getElementById('form-note');
   form.addEventListener('submit', function (e) {
@@ -1200,10 +1205,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
     if (missing.length || !f.email.checkValidity()) {
       note.textContent = 'Please add your name, phone number and a valid email so we can reach you.';
       (missing.length ? f[missing[0]] : f.email).focus();
-      return;
-    }
-    if (!TO_EMAIL) {
-      note.textContent = 'This form is not connected yet. Please call 706-882-2010.';
       return;
     }
     var lines = [
